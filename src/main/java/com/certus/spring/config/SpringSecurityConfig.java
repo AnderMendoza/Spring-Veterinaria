@@ -45,6 +45,8 @@ public class SpringSecurityConfig {
 						.antMatchers("/app/home", "/bootstrap/**", "/img/**").permitAll()
 						.antMatchers("/app/listar").hasAnyRole("User","SuperAdmin")
 						.antMatchers("/app/Editar/**").hasRole("SuperAdmin")
+						.antMatchers("/app/crear").hasRole("SuperAdmin")
+						.antMatchers("/app/Eliminar/**").hasRole("SuperAdmin")
 						.anyRequest().authenticated()
 				
 				).formLogin();
