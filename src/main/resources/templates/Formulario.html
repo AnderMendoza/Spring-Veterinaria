@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title th:text="${TituloPagina}"></title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+</head>
+<body>
+
+	<header th:replace="/layout :: header"></header>
+
+	<div class="container mt-2">
+		<div class="jumbotron">
+			<h1 class="display-4" th:text="${titulo}"></h1>
+			<p class="lead" th:text="${Estado}"></p>
+			<hr class="my-4">
+
+			<div>
+				<form th:action="@{/app/form}" th:object="${mascota}"  method="post" enctype="multipart/form-data">				
+				
+					<div class="form-group">
+						<label for="idNombres">Nombres</label> 
+						<input type="text" name="nombres" class="form-control" id="idNombres" th:field="*{nombres}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nombres')}"  th:errors="*{nombres}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idRaza">Raza</label> 
+						<input type="text" name="raza"  class="form-control" id="idRaza" th:field="*{raza}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('raza')}"  th:errors="*{raza}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idEdad">Edad</label> 
+						<input type="text" name="edad" class="form-control" id="idEdad" th:field="*{edad}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('edad')}"  th:errors="*{edad}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idDueño">Dueño</label> 
+						<input type="text" name="dueño" class="form-control" id="idDueño" th:field="*{dueño}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('dueño')}"  th:errors="*{dueño}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idCaso">Caso</label> 
+						<input type="text" name="caso" class="form-control" id="idCaso" th:field="*{caso}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('caso')}"  th:errors="*{caso}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idIngreso">Ingreso</label> 
+						<input type="text" name="ingreso" class="form-control" id="idIngreso" th:field="*{ingreso}"> 
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('ingreso')}"  th:errors="*{ingreso}" ></div>
+					</div>
+					
+					<div class="form-group">
+						<label for="idUriImagen">Enlace Imagen</label> 
+						<input type="file" name="ImagenDelFormulario" class="form-control" id="idUriImagen">
+					</div>
+					
+					<button type="submit" class="btn btn-success">Crear Mascota</button>
+				</form>
+			</div>			
+
+		</div>
+	</div>
+
+
+	<script src="/bootstrap/jquery.slim.min.js"></script>
+	<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
