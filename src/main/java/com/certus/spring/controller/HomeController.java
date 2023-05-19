@@ -89,7 +89,7 @@ public class HomeController {
 		return "Formulario";
 	}
 
-	@GetMapping("/Elimnar/{idMascota}")
+	@GetMapping("/Eliminar/{idMascota}")
 	public String ElimnarMascota(@PathVariable int idMascota, Model model) {
 
 		Response<Mascota> rspta = InterfaceMascota1.eliminarMascota(idMascota);
