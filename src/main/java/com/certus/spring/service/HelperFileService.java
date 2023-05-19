@@ -24,7 +24,7 @@ public class HelperFileService implements IHelper {
 				rfg.setMensaje("Archivo procesado correctamente");				
 			} catch (UnsupportedEncodingException e) {
 				rfg.setEstado(false);
-				rfg.setMensaje("Se produjo un erro al procesar el archivo");
+				rfg.setMensaje("Se produjo un error al procesar el archivo");
 			}
 		}
 		
